@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:secure-properties="http://www.mulesoft.org/schema/mule/secure-properties"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/schema/mule/secure-properties/current/mule-secure-properties.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<configuration doc:name="Configuration" doc:id="9613ba0d-bd85-4fdd-8eda-d6b5cc0f8f2f" defaultErrorHandler-ref="global-error-handlerError_Handler" />
+	<db:config name="Database_Config" doc:name="Database Config" doc:id="2b03432c-b301-46b6-9fcd-fb5b74cb8b45" >
+		<db:my-sql-connection host="${database.host}" port="${database.port}" user="${database.username}" password="${secure::database.password}" database="${database.name}" />
+	</db:config>
+	
+	 <http:listener-config name="notes_app-api-httpListenerConfig">
+        <http:listener-connection host="${http.host}" port="${http.port}" />
+    </http:listener-config>
+    <apikit:config name="notes_app-api-config" api="notes_app-api.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
+	<secure-properties:config name="Secure_Properties_Config" doc:name="Secure Properties Config" doc:id="42fdd52c-9e07-47de-9585-b82d46f27e7c" file="dev-secure.properties" key="abcd1234"> 
+	  <secure-properties:encrypt algorithm="Blowfish"/>
+	</secure-properties:config>  
+  <configuration-properties doc:name="Configuration properties" doc:id="4d7c7f3a-62d3-4624-824f-3cfec20a9f3a" file="dev.properties" />
+</mule>

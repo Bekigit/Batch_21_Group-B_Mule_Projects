@@ -1,0 +1,10 @@
+#%RAML 1.0 Library
+types:
+  note: !include DataType/dataType.raml
+traits:
+  response: !include Traits/400and500.raml
+securitySchemes:
+  sercurity: !include Security/basic.raml
+  
+resourceTypes:
+  resource: !include resourceType/200resourceType.raml

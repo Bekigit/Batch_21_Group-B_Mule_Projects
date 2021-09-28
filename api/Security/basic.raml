@@ -1,0 +1,15 @@
+#%RAML 1.0 SecurityScheme
+type:  Basic Authentication
+describedBy:
+  headers:
+    username:
+      description: send username
+      type: string 
+    password:
+      description: send password
+      type: string
+  responses:
+    403:
+      description: credental is required 
+    401:
+      description: username or password is incorrect     

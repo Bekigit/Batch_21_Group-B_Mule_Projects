@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="interface-suite.xml" />
+	<munit:test name="put:\notes\(noteid):notes_app-api-config-test" doc:id="2524b8f5-e531-4f4a-8140-48902cd9b7c7" >
+		<munit:behavior >
+			<munit:set-event doc:name="Set Input" doc:id="b949822a-5d47-45b1-bab1-94e957326541" >
+				<munit:payload value="#[output application/json --- readUrl('classpath://putnotesnoteidnotesappapiconfigtest\set-event_payload.dwl')]" encoding="UTF-8" mediaType="application/json" />
+				<munit:attributes value="#[readUrl('classpath://putnotesnoteidnotesappapiconfigtest\set-event_attributes.dwl')]" />
+				<munit:variables >
+					<munit:variable key="outboundHeaders" value="#[readUrl('classpath://putnotesnoteidnotesappapiconfigtest\set-event_variable_.dwl')]" />
+				</munit:variables>
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to put:\notes\(noteid):notes_app-api-config" doc:id="22fca4b3-ec9e-4c14-9905-250fc71c13d3" name="put:\notes\(noteid):notes_app-api-config"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="2a749731-50a3-4e12-baa1-a15de2ef7032" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import putnotesnoteidnotesappapiconfigtest::assert_expression_payload
+---
+assert_expression_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="delete:\notes\(noteid):notes_app-api-config-test" doc:id="d866c181-0570-4820-a336-bebe96458282" >
+		<munit:behavior >
+			<munit:set-event doc:name="Set Input" doc:id="1808b4c0-6a6c-4e19-9fb6-00a5ae228d4f" >
+				<munit:payload value="#[output application/json --- readUrl('classpath://deletenotesnoteidnotesappapiconfigtest\set-event_payload.dwl')]" encoding="UTF-8" mediaType="application/json" />
+				<munit:attributes value="#[readUrl('classpath://deletenotesnoteidnotesappapiconfigtest\set-event_attributes.dwl')]" />
+				<munit:variables >
+					<munit:variable key="outboundHeaders" value="#[readUrl('classpath://deletenotesnoteidnotesappapiconfigtest\set-event_variable_.dwl')]" />
+				</munit:variables>
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to delete:\notes\(noteid):notes_app-api-config" doc:id="d4583385-4b8f-402a-946a-607d29affc39" name="delete:\notes\(noteid):notes_app-api-config"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="aa8dcab0-9c59-4f05-baa7-134088aeee38" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import deletenotesnoteidnotesappapiconfigtest::assert_expression_payload
+---
+assert_expression_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="get:\notes:notes_app-api-config-test" doc:id="381870fd-2baa-4130-a2f5-a4f6e081233d" >
+		<munit:behavior >
+			<munit:set-event doc:name="Set Input" doc:id="448412fa-36ae-442f-b642-d4dac2ba6431" >
+				<munit:payload value="#[output application/json --- readUrl('classpath://getnotesnotesappapiconfigtest\set-event_payload.dwl')]" encoding="UTF-8" mediaType="application/json" />
+				<munit:attributes value="#[readUrl('classpath://getnotesnotesappapiconfigtest\set-event_attributes.dwl')]" />
+				<munit:variables >
+					<munit:variable key="outboundHeaders" value="#[readUrl('classpath://getnotesnotesappapiconfigtest\set-event_variable_.dwl')]" />
+				</munit:variables>
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to get:\notes:notes_app-api-config" doc:id="366eaf32-73fc-43f2-af3a-4ddd1245358d" name="get:\notes:notes_app-api-config"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="e8fc205e-229f-4f3a-8f6f-4531a635a1fa" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import getnotesnotesappapiconfigtest::assert_expression_payload
+---
+assert_expression_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="get:\notes\(noteid):notes_app-api-config-test" doc:id="70d041b2-c60b-4924-9982-44acc0c3cbe9" >
+		<munit:behavior >
+			<munit:set-event doc:name="Set Input" doc:id="f711d107-1bdf-4d02-af98-eb760b47324b" >
+				<munit:payload value="#[output application/json --- readUrl('classpath://getnotesnoteidnotesappapiconfigtest\set-event_payload.dwl')]" encoding="UTF-8" mediaType="application/json" />
+				<munit:attributes value="#[readUrl('classpath://getnotesnoteidnotesappapiconfigtest\set-event_attributes.dwl')]" />
+				<munit:variables >
+					<munit:variable key="outboundHeaders" value="#[readUrl('classpath://getnotesnoteidnotesappapiconfigtest\set-event_variable_.dwl')]" />
+				</munit:variables>
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to get:\notes\(noteid):notes_app-api-config" doc:id="d5fe7eba-6aaf-4d53-a757-ac4b209051e9" name="get:\notes\(noteid):notes_app-api-config"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="0a513a8b-47e4-48f4-8c49-95a64e405c97" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import getnotesnoteidnotesappapiconfigtest::assert_expression_payload
+---
+assert_expression_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="post:\notes:application\json:notes_app-api-config-test" doc:id="44f02ad7-69dd-4b13-9095-f43c02c708f1" >
+		<munit:behavior >
+			<munit:set-event doc:name="Set Input" doc:id="0a339b03-74e0-4d41-94e6-a34bca62c734" >
+				<munit:payload value="#[output application/json --- readUrl('classpath://postnotesapplicationjsonnotesappapiconfigtest\set-event_payload.dwl')]" encoding="UTF-8" mediaType="application/json" />
+				<munit:attributes value="#[readUrl('classpath://postnotesapplicationjsonnotesappapiconfigtest\set-event_attributes.dwl')]" />
+				<munit:variables >
+					<munit:variable key="outboundHeaders" value="#[readUrl('classpath://postnotesapplicationjsonnotesappapiconfigtest\set-event_variable_.dwl')]" />
+				</munit:variables>
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to post:\notes:application\json:notes_app-api-config" doc:id="bfde8c94-84c8-4175-bb9d-71fe1abb4c1b" name="post:\notes:application\json:notes_app-api-config"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="0bdb17ba-af3e-4a19-b553-6dac60c9f817" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import postnotesapplicationjsonnotesappapiconfigtest::assert_expression_payload
+---
+assert_expression_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="notes_app-api-main-test" doc:id="3b605947-4e44-45ad-94fb-9e84d212c7e4" >
+		<munit:behavior >
+			<munit:set-event doc:name="Set Input" doc:id="e0d47416-933e-40d2-a643-a1598ae79516" >
+				<munit:payload value="#[output application/json --- readUrl('classpath://notesappapimaintest\set-event_payload.dwl')]" encoding="UTF-8" mediaType="application/json" />
+				<munit:attributes value="#[readUrl('classpath://notesappapimaintest\set-event_attributes.dwl')]" />
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to notes_app-api-main" doc:id="fd115861-6c28-4c2d-b0d5-f87ee085ebda" name="notes_app-api-main"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="4f92e7af-438e-4cc7-bbd3-4a0cb2616dc5" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import notesappapimaintest::assert_expression_payload
+---
+assert_expression_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="notes_app-api-console-test" doc:id="4ebb6b9a-4c06-4a87-8a93-950626b3908b" >
+		<munit:behavior >
+			<munit:set-event doc:name="Set Input" doc:id="e7f5e48e-fd66-4654-8ac8-5e1cdd643865" >
+				<munit:payload value="#[readUrl('classpath://notesappapiconsoletest\set-event_payload.dwl')]" encoding="UTF-8" />
+				<munit:attributes value="#[readUrl('classpath://notesappapiconsoletest\set-event_attributes.dwl')]" />
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to notes_app-api-console" doc:id="8e7a0c69-1913-4537-8fad-e37bca75ffb9" name="notes_app-api-console"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="d3ff10bf-f43a-4755-8128-2ed904ef831d" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import notesappapiconsoletest::assert_expression_payload
+---
+assert_expression_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+
+
+</mule>

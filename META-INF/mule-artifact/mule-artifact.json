@@ -1,0 +1,47 @@
+{
+  "configs": [
+    "global-config.xml",
+    "implementation.xml",
+    "interface.xml",
+    "global-error-handler.xml"
+  ],
+  "secureProperties": [],
+  "redeploymentEnabled": true,
+  "name": "com.mycompany:craft_system_api_notes_app:1.0.0-SNAPSHOT",
+  "minMuleVersion": "4.3.0",
+  "requiredProduct": "MULE_EE",
+  "classLoaderModelLoaderDescriptor": {
+    "id": "mule",
+    "attributes": {
+      "exportedPackages": [],
+      "exportedResources": [
+        "api/DataType/dataType.raml",
+        "api/Examples/201examples.json",
+        "api/Examples/file.json",
+        "api/Examples/inserted.json",
+        "api/Examples/notebyid.json",
+        "api/Examples/notes.json",
+        "api/exchange.json",
+        "api/library.raml",
+        "api/notes_app-api.raml",
+        "api/resourceType/200resourceType.raml",
+        "api/Security/basic.raml",
+        "api/Traits/400and500.raml",
+        "application-types.xml",
+        "dev-secure.properties",
+        "dev.properties",
+        "global-config.xml",
+        "global-error-handler.xml",
+        "implementation.xml",
+        "interface.xml",
+        "log4j2.xml",
+        "prod-secure.properties",
+        "prod.properties"
+      ]
+    }
+  },
+  "bundleDescriptorLoader": {
+    "id": "mule",
+    "attributes": {}
+  }
+}
